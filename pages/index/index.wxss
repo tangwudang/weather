@@ -80,7 +80,7 @@
   left: 40rpx;
   right: 40rpx;
   height: 90rpx;
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-top: 1px solid rgba(0, 0, 0, 0.2);
   font-size: 30rpx;
   line-height: 42rpx;
   opacity: 0.5;
