@@ -22,7 +22,9 @@ Page({
     nowTemp: '',
     nowWeather: '',
     nowWeatherBackgroud:'',
-    hourWeather:[]
+    hourWeather:[],
+    todayTemp:"",
+    todayDate:""
   },
   onPullDownRefresh(){
     this.getNow(() => {
@@ -44,6 +46,7 @@ Page({
         let result = res.data.result
         this.setNow(result)
         this.setHourWeather(result)
+        this.setToday(result)
       },
       complete: () => {
         callBack && callBack()
@@ -82,7 +85,13 @@ Page({
     this.setData({
       hourWeather: hourWeather1
     })
-  }
+  },
 
-  
+  setToday(result){
+    let date = new Date()
+    this.setData({
+      todayTemp: result.today.minTemp + '° - ' + result.today.maxTemp+ '°',
+      todayDate: date.getFullYear() + '-' + (date.getMonth() + 1) +"-" + date.getDate()
+    })
+  }
 })
