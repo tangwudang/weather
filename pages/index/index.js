@@ -137,28 +137,24 @@ Page({
       url: '/pages/list/list',
     })
   },
-<<<<<<< .merge_file_a11472
+
   onTapLocation(){
     wx.getLocation({
       success: function(res) {
         console.log(res.latitude, res.longitude)
-      },
-    })
-=======
-
-  xxxx(){
-    //调用接口
-    this.qqmapsdk.reverseGeocoder({
-      location: {
-        latitude: 39.984060,
-        longitude: 116.307520
-      },
-      success: res => {
-        let city = res.result.address_component.city;
-        console.log(city);
+        //调用接口
+        this.qqmapsdk.reverseGeocoder({
+          location: {
+            latitude: res.latitude,
+            longitude: res.longitude
+          },
+          success: res => {
+            let city = res.result.address_component.city;
+            console.log(city);
+          }
+        })
       }
-    });
->>>>>>> .merge_file_a06972
+    })
   }
 
 })
