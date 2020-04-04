@@ -1,5 +1,12 @@
 <!--index.wxml-->
 <view class="weather-wrapper">
+  <view class="location-wrapper" bindtap="onTapLocation">
+    <view class="location">
+      <image class="location-icon" src="/images/location-icon.png"></image>
+      <view class="location-text">广州市</view>
+    </view>
+    <view class="location-tips" >点击获取当前位置</view>
+  </view>
   <view class="temperature">{{nowTemp}}</view>
   <view class="weather">{{nowWeather}}</view>
   <image class="weather-bg" src="{{nowWeatherBackgroud}}" mode="scaleToFill"></image>
