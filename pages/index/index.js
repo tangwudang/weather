@@ -16,6 +16,8 @@ const weatherColorMap = {
   'heavyrain': '#c5ccd0',
   'snow': '#aae1fc'
 }
+  // 引入SDK核心类
+const QQMapWX = require('../../libs/qqmap-wx-jssdk.js');
 
 Page({
   data: {
@@ -24,17 +26,51 @@ Page({
     nowWeatherBackgroud:'',
     hourWeather:[],
     todayTemp:"",
-    todayDate:""
+    todayDate:"",
+    city:"",
+    locationTipsText:""
   },
+
   onPullDownRefresh(){
     this.getNow(() => {
       wx.stopPullDownRefresh()
     });
   },
+
   onLoad(){
+    this.qqmapsdk = new QQMapWX({
+      key: 'ASEBZ-YB5H4-LOJUZ-X7V5L-SXIWK-LGFJ6'
+    })
     this.getNow();
+    console.log("onLoad")
+  },
+  /**
+     * 生命周期函数--监听页面初次渲染完成
+     */
+  onReady: function () {
+    console.log("onReady")
   },
 
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
+    console.log("onShow")
+  },
+
+  /**
+   * 生命周期函数--监听页面隐藏
+   */
+  onHide: function () {
+    console.log("onHide")
+  },
+
+  /**
+   * 生命周期函数--监听页面卸载
+   */
+  onUnload: function () {
+    console.log("onUnload")
+  },
   getNow(callBack){
     wx.request({
       url: 'https://test-miniprogram.com/api/weather/now',
@@ -101,12 +137,28 @@ Page({
       url: '/pages/list/list',
     })
   },
+<<<<<<< .merge_file_a11472
   onTapLocation(){
     wx.getLocation({
       success: function(res) {
         console.log(res.latitude, res.longitude)
       },
     })
+=======
+
+  xxxx(){
+    //调用接口
+    this.qqmapsdk.reverseGeocoder({
+      location: {
+        latitude: 39.984060,
+        longitude: 116.307520
+      },
+      success: res => {
+        let city = res.result.address_component.city;
+        console.log(city);
+      }
+    });
+>>>>>>> .merge_file_a06972
   }
 
 })
