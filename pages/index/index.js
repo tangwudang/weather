@@ -42,34 +42,34 @@ Page({
       key: 'ASEBZ-YB5H4-LOJUZ-X7V5L-SXIWK-LGFJ6'
     })
     this.getNow();
-    console.log("onLoad")
+    //console.log("onLoad")
   },
   /**
      * 生命周期函数--监听页面初次渲染完成
      */
   onReady: function () {
-    console.log("onReady")
+    //console.log("onReady")
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    console.log("onShow")
+    //console.log("onShow")
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-    console.log("onHide")
+    //console.log("onHide")
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-    console.log("onUnload")
+    //console.log("onUnload")
   },
   getNow(callBack){
     wx.request({
@@ -134,7 +134,7 @@ Page({
   onTapDayWeather(){
     wx.showToast()
     wx.navigateTo({
-      url: '/pages/list/list',
+      url: '/pages/list/list'
     })
   },
 
@@ -149,8 +149,8 @@ Page({
             longitude: res.longitude
           },
           success: res => {
-            let city = res.result.address_component.city;
-            console.log(city);
+            let city = res.result.address_component.city
+            console.log(city)
           }
         })
       }
