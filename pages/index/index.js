@@ -117,10 +117,10 @@ Page({
   },
 
   onTapDayWeather(){
-    wx.showToast()
-    wx.navigateTo({
-      url: '/pages/list/list'
-    })
+    // wx.showToast()
+    // wx.navigateTo({
+    //   url: '/pages/list/list'
+    // })
   },
 
   /** 根据权限做相应动作 **/
